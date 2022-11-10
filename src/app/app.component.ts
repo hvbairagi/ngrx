@@ -9,6 +9,7 @@ import {
   NavigationStart,
   Router,
 } from "@angular/router";
+import { AppState } from "./reducers";
 
 @Component({
   selector: "app-root",
@@ -18,7 +19,10 @@ import {
 export class AppComponent implements OnInit {
   loading = true;
 
-  constructor(private router: Router) {}
+  isLoggedIn$: Observable<boolean>;
+  isLoggedOut$: Observable<boolean>;
+
+  constructor(private router: Router, private store: Store<AppState>) {}
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
@@ -39,6 +43,9 @@ export class AppComponent implements OnInit {
         }
       }
     });
+
+    this.isLoggedIn$ = this.store.pipe(map((state) => !!state["auth"].user));
+    this.isLoggedOut$ = this.store.pipe(map((state) => !state["auth"].user));
   }
 
   logout() {}
