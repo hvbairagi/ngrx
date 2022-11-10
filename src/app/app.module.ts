@@ -12,7 +12,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { HttpClientModule } from "@angular/common/http";
 
 import { RouterModule, Routes } from "@angular/router";
-import { AuthModule } from "./auth/reducers/auth.module";
+import { AuthModule } from "./auth/auth.module";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "../environments/environment";

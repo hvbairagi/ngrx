@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { Store } from "@ngrx/store";
 
-import { AuthService } from "../reducers/auth.service";
+import { AuthService } from "../auth.service";
 import { tap } from "rxjs/operators";
 import { noop } from "rxjs";
 import { Router } from "@angular/router";
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       .pipe(
         tap((user) => {
           console.log(user);
-          this.store.dispatch(login({ user }));
+          // this.store.dispatch(login({ user }));
           this.router.navigateByUrl("/courses");
         })
       )
