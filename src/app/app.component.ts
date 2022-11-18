@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
+import { distinctUntilChanged, map } from "rxjs/operators";
 import {
   NavigationCancel,
   NavigationEnd,
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
   loading = true;
 
   isLoggedIn$: Observable<boolean>;
+
   isLoggedOut$: Observable<boolean>;
 
   constructor(private router: Router, private store: Store<AppState>) {}
@@ -52,6 +54,7 @@ export class AppComponent implements OnInit {
     });
 
     this.isLoggedIn$ = this.store.pipe(select(isLoggedIn));
+
     this.isLoggedOut$ = this.store.pipe(select(isLoggedOut));
   }
 
