@@ -12,17 +12,17 @@ export const selectAllCourses = createSelector(
 
 export const selectBeginnerCourses = createSelector(
   selectAllCourses,
-  (courses) => courses.filter((course) => course.category === "BEGINNER")
+  (courses) => courses.filter((course) => course.category == "BEGINNER")
 );
 
 export const selectAdvancedCourses = createSelector(
   selectAllCourses,
-  (courses) => courses.filter((course) => course.category === "ADVANCED")
+  (courses) => courses.filter((course) => course.category == "ADVANCED")
 );
 
 export const selectPromoTotal = createSelector(
   selectAllCourses,
-  (courses) => courses.filter((course) => course.category === "PROMO").length
+  (courses) => courses.filter((course) => course.promo).length
 );
 
 export const areCoursesLoaded = createSelector(
