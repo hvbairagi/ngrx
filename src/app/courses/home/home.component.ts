@@ -12,6 +12,7 @@ import { CourseEntityService } from "../services/course-entity.service";
   selector: "home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"],
+  changeDetection: ChangeDetectionStrategy.onPush,
 })
 export class HomeComponent implements OnInit {
   promoTotal$: Observable<number>;
